@@ -1,0 +1,14 @@
+name: SkriptMigrate
+description: Migrate your old scripts in one command
+authors: [Olyno]
+website: https://github.com/Olyno/SkriptMigrate
+version: 0.1.0
+main: com.olyno.skriptmigrate.SkriptMigrate
+depend:
+  - Skript
+
+commands:
+  migrate:
+    description: Migrate your old scripts in one command
+    usage: /migrate
+    permission: skriptmigrate.migrate

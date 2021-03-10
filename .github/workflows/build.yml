@@ -1,0 +1,34 @@
+name: Build SkriptMigrate
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Setup Java environement
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          java-package: jdk
+          architecture: x64
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Build SkriptMigrate
+        run: ./gradlew build
+
+      - name: Upload nightly build
+        uses: actions/upload-artifact@v2
+        with:
+          name: SkriptMigrate
+          path: build/libs/SkriptMigrate.jar
