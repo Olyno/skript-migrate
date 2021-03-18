@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: SkriptMigrate
-          path: build/libs/SkriptMigrate.jar
+          path: app/build/libs/SkriptMigrate.jar
