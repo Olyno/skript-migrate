@@ -19,6 +19,8 @@ steps:
 
 Once you have created your migration file, and placed it in the ``plugins/SkriptMigrate/migrations`` folder, you just need to run the ``/migrate`` command to start the migrations.
 
+If you changed any migration file, you need to reload the cache. For that, simply run ``/migrate --reload``.
+
 ## Configuration
 
 Here is a list of available options:
