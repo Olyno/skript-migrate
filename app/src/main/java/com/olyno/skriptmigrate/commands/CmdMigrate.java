@@ -112,9 +112,10 @@ public class CmdMigrate implements CommandExecutor {
                 migration.setAddonName((String) loadedMigration.get("addon_name"));
                 migration.setAuthor((String) loadedMigration.get("author"));
                 LinkedHashMap<String, Object> migrationSteps = (LinkedHashMap<String, Object>) loadedMigration.get("steps");
-                for (String stepVersion : migrationSteps.keySet()) {
+                for (Object stepVersionObject : migrationSteps.keySet()) {
+                    String stepVersion = stepVersionObject.toString();
                     MigrationVersion migrationVersion = new MigrationVersion(stepVersion);
-                    for (LinkedHashMap<String, Object> step : (List<LinkedHashMap<String, Object>>) migrationSteps.get(stepVersion)) {
+                    for (LinkedHashMap<String, Object> step : (List<LinkedHashMap<String, Object>>) migrationSteps.get(stepVersionObject)) {
                         MigrationStep migrationStep = new MigrationStep();
                         migrationStep.setFind((String) step.get("find"));
                         migrationStep.setResult((String) step.get("result"));
