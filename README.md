@@ -17,6 +17,8 @@ steps:
       result: Final test!
 ```
 
+Once you have created your migration file, and placed it in the ``plugins/SkriptMigrate/migrations`` folder, you just need to run the ``/migrate`` command to start the migrations.
+
 ## Configuration
 
 Here is a list of available options:
