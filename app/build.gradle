@@ -24,8 +24,13 @@ dependencies {
 
 }
 
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
 artifacts {
-    archives jar.archiveFile
+    archives sourcesJar
 }
 
 jar {
