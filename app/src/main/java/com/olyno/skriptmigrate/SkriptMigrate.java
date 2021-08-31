@@ -62,6 +62,10 @@ public class SkriptMigrate extends JavaPlugin {
 
     }
 
+    /**
+     * Load the migration file of a plugin
+     * @param plugin The plugin with a migration file.
+     */
     public void load(JavaPlugin plugin) {
         plugin.saveResource("migrations.yml", true);
         String pluginName = plugin.getName();
