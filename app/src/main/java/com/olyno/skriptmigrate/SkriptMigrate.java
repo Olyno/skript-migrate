@@ -1,6 +1,11 @@
 package com.olyno.skriptmigrate;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,6 +60,21 @@ public class SkriptMigrate extends JavaPlugin {
 
         getCommand("migrate").setExecutor(new CmdMigrate(migrationDir));
 
+    }
+
+    public void load(JavaPlugin plugin) {
+        plugin.saveResource("migrations.yml", true);
+        String pluginName = plugin.getName();
+        Path migrationsFile = Paths.get("plugins/" + pluginName + "/migrations.yml");
+        Path migrationsFileFinal = Paths.get("plugins/SkriptMigrate/migrations/" + pluginName.toLowerCase() + ".yml");
+        try {
+            Files.copy(migrationsFile, migrationsFileFinal);
+        } catch (IOException ex) {
+            if (ex instanceof FileAlreadyExistsException) {
+                return;
+            }
+            ex.printStackTrace();
+        }
     }
 
 }
