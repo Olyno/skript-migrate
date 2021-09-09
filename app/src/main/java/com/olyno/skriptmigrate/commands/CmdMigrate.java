@@ -105,7 +105,7 @@ public class CmdMigrate implements CommandExecutor {
         migrationFiles.clear();
         for (File migrationFile : migrationsDir.listFiles()) {
             try {
-                String fileContent = Files.readString(migrationFile.toPath());
+                String fileContent = String.join("\n", Files.readAllLines(migrationFile.toPath()));
                 Yaml yaml = new Yaml();
                 LinkedHashMap<String, Object> loadedMigration = (LinkedHashMap<String, Object>) yaml.load(fileContent);
                 MigrationFile migration = new MigrationFile();
