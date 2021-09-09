@@ -21,6 +21,15 @@ Once you have created your migration file, and placed it in the ``plugins/Skript
 
 If you changed any migration file, you need to reload the cache. For that, simply run ``/migrate --reload``.
 
+You need to load your migration file to be able to migrate:
+
+```java
+// In your main class extending JavaPlugin
+if (classExist("com.olyno.skriptmigrate.SkriptMigrate")) {
+    SkriptMigrate.load(this);
+}
+```
+
 ## Configuration
 
 Here is a list of available options:
