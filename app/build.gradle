@@ -16,21 +16,10 @@ repositories {
 }
 
 dependencies {
-
     // Skript
     compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
     compileOnly 'com.github.SkriptLang:Skript:2.3.7'
     compileOnly "org.yaml:snakeyaml:1.28"
-
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-artifacts {
-    archives sourcesJar
 }
 
 jar {
