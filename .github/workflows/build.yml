@@ -19,8 +19,8 @@ jobs:
           java-version: '21'
           cache: 'gradle'
           cache-dependency-path: |
-            sub-project/*.gradle*
-            sub-project/**/gradle-wrapper.properties
+            ./*.gradle*
+            ./**/gradle-wrapper.properties
 
       - name: Make gradlew executable
         run: chmod +x gradlew
