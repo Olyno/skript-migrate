@@ -17,8 +17,10 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '21'
-          java-package: jdk
-          architecture: x64
+          cache: 'gradle'
+          cache-dependency-path: |
+            sub-project/*.gradle*
+            sub-project/**/gradle-wrapper.properties
 
       - name: Make gradlew executable
         run: chmod +x gradlew
@@ -28,6 +30,7 @@ jobs:
 
       - name: Upload nightly build
         uses: actions/upload-artifact@v4
+        if: success()
         with:
           name: SkriptMigrate
-          path: app/build/libs/SkriptMigrate.jar
+          path: app/build/libs/SkriptMigrate-nightly.jar
