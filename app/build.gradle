@@ -2,23 +2,25 @@ plugins {
     id 'java'
 }
 
-group 'com.olyno.skriptmigrate'
+group = 'com.olyno.skriptmigrate'
 
-sourceCompatibility = 1.8
+java {
+    sourceCompatibility = JavaVersion.VERSION_18
+}
 
 repositories {
     mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' } // Spigot
-    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // Spigot
-    maven { url 'https://repo.destroystokyo.com/repository/maven-public/' } // Skript
-    maven { url 'https://jitpack.io' } // Skript and more
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' } // Spigot
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // Spigot
+    maven { url = 'https://repo.destroystokyo.com/repository/maven-public/' } // Skript
+    maven { url = 'https://jitpack.io' } // Skript and more
 }
 
 dependencies {
     // Skript
     compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
-    compileOnly 'com.github.SkriptLang:Skript:2.3.7'
-    compileOnly "org.yaml:snakeyaml:1.28"
+    compileOnly 'com.github.SkriptLang:Skript:2.10.2'
+    compileOnly "org.yaml:snakeyaml:2.4"
 }
 
 jar {
