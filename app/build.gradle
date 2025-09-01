@@ -21,7 +21,7 @@ dependencies {
     // Skript
     compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
     compileOnly 'com.github.SkriptLang:Skript:2.11.2'
-    compileOnly "org.yaml:snakeyaml:2.4"
+    compileOnly "org.yaml:snakeyaml:2.5"
 }
 
 jar {
